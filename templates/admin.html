@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Orders</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h2>Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>OrderID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Product</th>
+                <th>Material</th>
+                <th>Qty</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Receipt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for o in orders %}
+            <tr>
+                <td>{{ o.OrderID }}</td>
+                <td>{{ o.Name }}</td>
+                <td>{{ o.Phone }}</td>
+                <td>{{ o.Product }}</td>
+                <td>{{ o.Material }}</td>
+                <td>{{ o.Qty }}</td>
+                <td>{{ o.Amount }}</td>
+                <td>{{ o.Date }}</td>
+                <td><a href="{{ url_for('receipt', order_id=o.OrderID) }}" target="_blank">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{{ url_for('admin_logout') }}">Logout</a></p>
+</body>
+</html>

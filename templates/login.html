@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 80px; }
+        form { display: inline-block; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        input { width: 280px; padding: 10px; margin: 8px 0; display: block; }
+        button { padding: 10px 20px; background-color: #000; color: #fff; border: none; cursor: pointer; }
+        button:hover { background-color: #333; }
+        .error { color: red; margin-bottom: 12px; }
+    </style>
+</head>
+<body>
+    <h2>Admin Login</h2>
+    {% with messages = get_flashed_messages(category_filter=["error"]) %}
+      {% if messages %}
+        <div class="error">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+    <form action="{{ url_for('admin_login') }}" method="post">
+        <input name="username" placeholder="Admin username" required>
+        <input name="password" type="password" placeholder="Admin password" required>
+        <button type="submit">Login</button>
+    </form>
+</body>
+</html>

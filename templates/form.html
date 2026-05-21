@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yuktira - 3D Print System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .logo {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .logo img {
+            width: 180px;
+            height: auto;
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- 🔥 LOGO REPLACED TITLE -->
+<div class="logo">
+    <img src="{{ url_for('static', filename='yuktira-logo-transparent2.png') }}" alt="Yuktira Logo">
+</div>
+
+<h3>3D Printing Order System</h3>
+
+<form action="/submit" method="POST">
+
+    <input name="name" placeholder="Customer Name" required><br>
+
+    <input name="phone" placeholder="Phone" required><br>
+
+    <input name="product" placeholder="Product Name" required><br>
+
+    <input name="material" placeholder="Material (PLA/PETG)" required><br>
+
+    <input name="qty" type="number" placeholder="Quantity" required><br>
+
+    <input name="amount" type="number" placeholder="Amount ₹" required><br>
+
+    <button type="submit">Generate Receipt</button>
+
+</form>
+
+</body>
+</html>
